@@ -24,13 +24,9 @@ export function HeroSection() {
   }, []);
 
   useEffect(() => {
-    const lenis = (window as any).lenis;
-
     const sections = ["about", "skills", "contact"];
 
-    if (!lenis) return;
-
-    const onScroll = () => {
+    const handleScroll = () => {
       let current = "about";
 
       for (const id of sections) {
@@ -47,11 +43,10 @@ export function HeroSection() {
       setActive(current);
     };
 
-    lenis.on("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run once
 
-    return () => {
-      lenis.off("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTo = (id: string) => {
