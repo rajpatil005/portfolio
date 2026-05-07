@@ -15,7 +15,7 @@ const projects = [
     link: "https://taskora-rose.vercel.app/",
   },
   {
-    title: "Analytics UI",
+    title: "In Work",
     image: "/images/project-3.jpg",
     link: "#",
   },
