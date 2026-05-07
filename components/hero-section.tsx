@@ -23,22 +23,69 @@ export function HeroSection() {
     setLoaded(true);
   }, []);
 
+  useEffect(() => {
+    const lenis = (window as any).lenis;
+
+    const sections = ["about", "skills", "contact"];
+
+    if (!lenis) return;
+
+    const onScroll = () => {
+      let current = "about";
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          current = id;
+        }
+      }
+
+      setActive(current);
+    };
+
+    lenis.on("scroll", onScroll);
+
+    return () => {
+      lenis.off("scroll", onScroll);
+    };
+  }, []);
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    el.scrollIntoView({ behavior: "smooth" });
+
+    const lenis = (window as any).lenis;
+
+    if (lenis) {
+      lenis.scrollTo(el, {
+        duration: 1.2,
+        offset: 0,
+        lock: false,
+      });
+    } else {
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
     setActive(id);
   };
 
   return (
     <section className="relative min-h-screen w-full overflow-visible px-4 sm:px-6">
       {/* NAV */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 md:right-6 md:left-auto md:translate-x-0 flex gap-4 md:gap-6 text-[10px] sm:text-sm tracking-widest uppercase text-gray-300">
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 md:right-6 md:left-auto md:translate-x-0 flex gap-4 md:gap-6 text-[10px] sm:text-sm tracking-widest uppercase text-gray-300 z-50 pointer-events-auto">
+        {" "}
         {["about", "skills", "contact"].map((item) => (
           <button
             key={item}
             onClick={() => scrollTo(item)}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center transition-all duration-300 drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_18px_rgba(255,255,255,0.45)]"
           >
             {item}
             {active === item && (
@@ -51,8 +98,7 @@ export function HeroSection() {
       {/* ================= MOBILE ================= */}
       <div className="md:hidden relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 pb-24">
         {/* BACK GLOW */}
-        <div className="absolute top-[18%] w-[280px] h-[280px] rounded-full bg-yellow-400/20 blur-[90px]" />
-
+        <div className="absolute top-[18%] w-[280px] h-[280px] rounded-full bg-yellow-400/20 blur-[90px] pointer-events-none" />
         {/* IMAGE CONTAINER */}
         <div
           className={`relative z-20 transition-all duration-1000 ${

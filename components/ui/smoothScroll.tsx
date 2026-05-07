@@ -11,6 +11,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       smoothTouch: false,
     });
 
+    // 🔥 IMPORTANT: expose globally
+    (window as any).lenis = lenis;
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -20,6 +23,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 
     return () => {
       lenis.destroy();
+      (window as any).lenis = null;
     };
   }, []);
 
