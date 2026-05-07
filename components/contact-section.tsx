@@ -12,6 +12,33 @@ const socialLinks = [
   { label: "Email", href: "mailto:rajvardhan.patil525@gmail.com", icon: Mail },
 ];
 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+  const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+  const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
+    .value;
+
+  const subject = `New Contact Message from ${name}`;
+
+  const body = `
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}
+  `;
+
+  const mailtoLink = `mailto:rajvardhan.patil525@gmail.com?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+};
+
 export function ContactSection() {
   return (
     <section id="contact" className=" px-6 pt-100 py-32">
@@ -51,10 +78,7 @@ export function ContactSection() {
           </div>
 
           <FadeIn delay={300}>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col gap-5"
-            >
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="name"
@@ -64,6 +88,7 @@ export function ContactSection() {
                 </label>
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="Your name"
                   className="rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -78,6 +103,7 @@ export function ContactSection() {
                 </label>
                 <input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="your@email.com"
                   className="rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -92,6 +118,7 @@ export function ContactSection() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   placeholder="Tell me about your project..."
                   className="resize-none rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
