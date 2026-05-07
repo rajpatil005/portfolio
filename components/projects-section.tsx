@@ -37,7 +37,7 @@ export function ProjectsSection() {
 
         <div className="mt-16 grid gap-10 md:grid-cols-2">
           {projects.map((project, i) => (
-            <FadeIn key={project.title} delay={i * 150}>
+            <FadeIn key={project.title}>
               <a
                 href={project.link}
                 target="_blank"
