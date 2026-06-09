@@ -15,7 +15,7 @@ export default function HomePage() {
       <div
         className="
     absolute inset-0 -z-10 grid
-    h-[6000px]
+    h-[5000px]
     lg:h-auto
     grid-rows-[830px_1050px_1600px_800px_1200px]
     lg:grid-rows-[100vh_100vh_166.67vh_100vh_100vh]
