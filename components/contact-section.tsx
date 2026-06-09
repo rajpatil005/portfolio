@@ -41,7 +41,7 @@ ${message}
 
 export function ContactSection() {
   return (
-    <section id="contact" className=" px-6 pt-100 py-32">
+    <section id="contact" className=" px-6 pt-40 py-32">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>

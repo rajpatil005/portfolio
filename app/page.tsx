@@ -9,23 +9,27 @@ import { Footer } from "@/components/footer";
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen text-white overflow-hidden">
+    <main className="relative min-h-screen text-white">
+      {" "}
       {/* BACKGROUND LAYERS */}
-      <div className="absolute inset-0 -z-10 grid grid-rows-[3fr_3fr_5fr_3fr_3fr]">
+      <div
+        className="
+    absolute inset-0 -z-10 grid
+    grid-rows-[230vh_300vh_450vh_230vh_auto]
+    lg:grid-rows-[100vh_100vh_166.67vh_100vh_100vh]
+  "
+      >
         <div className="bg-[#2e3446]" />
         <div className="bg-[#252b3a]" />
         <div className="bg-[#2e3446]" />
         <div className="bg-[#252b3a]" />
         <div className="bg-[#2e3446]" />
       </div>
-
       <HeroSection />
-
       <AboutSection />
       <ProjectsSection />
       <SkillsSection />
       <ContactSection />
-
       <Footer />
     </main>
   );

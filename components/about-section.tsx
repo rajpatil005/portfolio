@@ -24,7 +24,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative px-6 pt-100 pb-32">
+    <section id="about" className="relative px-6 pt-20 pb-32">
       <div className="mx-auto max-w-6xl">
         <FadeIn>
           <p className="text-sm uppercase tracking-[0.3em] text-yellow-400">

@@ -80,7 +80,13 @@ export function HeroSection() {
           <button
             key={item}
             onClick={() => scrollTo(item)}
-            className="flex flex-col items-center transition-all duration-300 drop-shadow-[0_2px_10px_rgba(255,255,255,0.25)] hover:drop-shadow-[0_4px_18px_rgba(255,255,255,0.45)]"
+            className={`flex flex-col items-center transition-all duration-300
+text-gray-300 nav-text [text-shadow:
+0_2px_10px_rgba(0,0,0,1),
+0_10px_30px_rgba(0,0,0,0.95),
+0_25px_70px_rgba(0,0,0,0.9),
+0_50px_120px_rgba(0,0,0,0.75)]
+`}
           >
             {item}
             {active === item && (
@@ -182,7 +188,14 @@ export function HeroSection() {
       {/* ================= DESKTOP ================= */}
       <div className="hidden md:block">
         {/* IMAGE */}
-        <div className="absolute top-[9.5%] left-1/2 -translate-x-1/2 z-20">
+        <div
+          className={`absolute top-[8%] left-1/2 -translate-x-1/2 z-20 transition-all duration-1300 ease-out ${
+            loaded
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 translate-y-10 scale-95"
+          }`}
+        >
+          {" "}
           <Image
             src={profilePic}
             alt="Raj Patil"
