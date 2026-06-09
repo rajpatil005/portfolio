@@ -14,10 +14,8 @@ export default function HomePage() {
       {/* BACKGROUND LAYERS */}
       <div
         className="
-    absolute inset-0 -z-10 grid
-    h-[5000px]
-    lg:h-auto
-    grid-rows-[830px_1050px_1600px_800px_1200px]
+    absolute top-0 left-0 right-0 -z-10 grid
+    grid-rows-[830px_1050px_1600px_800px_1050px]
     lg:grid-rows-[100vh_100vh_166.67vh_100vh_100vh]
   "
       >
