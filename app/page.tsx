@@ -15,7 +15,9 @@ export default function HomePage() {
       <div
         className="
     absolute inset-0 -z-10 grid
-    grid-rows-[230vh_300vh_450vh_230vh_auto]
+    h-[980vh]
+    lg:h-auto
+    grid-rows-[150vh_200vh_300vh_150vh_200vh]
     lg:grid-rows-[100vh_100vh_166.67vh_100vh_100vh]
   "
       >
