@@ -11,7 +11,6 @@ export default function HomePage() {
   return (
     <main className="relative min-h-screen text-white">
       {" "}
-      {/* BACKGROUND LAYERS */}
       <div
         className="
     absolute top-0 left-0 right-0 -z-10 grid

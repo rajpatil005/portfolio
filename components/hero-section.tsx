@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import profilePic from "../Accessaries/raj_pp.png";
+import profilePic from "../Accessaries/raj_pfp.png";
 import { useEffect, useState } from "react";
 
 const socialLinks = [
@@ -112,7 +112,7 @@ text-gray-300 nav-text [text-shadow:
               src={profilePic}
               alt="Raj Patil"
               priority
-              className="relative left-15 top-3 w-[260px] h-auto object-cover [filter:drop-shadow(0_0_30px_rgba(0,0,0,0.6))]"
+              className="relative left-10 top-3 w-[260px] h-auto object-cover [filter:drop-shadow(0_0_30px_rgba(0,0,0,0.6))]"
             />
             {/* PREMIUM SEPARATOR */}
             <div className="relative mt-3 flex justify-center">
