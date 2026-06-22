@@ -51,7 +51,7 @@ export function AboutSection() {
             {highlights.map((item, i) => (
               <FadeIn key={item.title} delay={200 + i * 100}>
                 <div className="flex gap-5 rounded-xl bg-[#252b3a] p-6 border border-white/5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-400/10 text-yellow-400">
+                  <div className="flex h-12 w-12 items-center justify-center p-2 rounded-lg bg-yellow-400/10 text-yellow-400">
                     <item.icon className="h-5 w-5" />
                   </div>
 
